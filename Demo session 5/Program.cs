@@ -67,6 +67,167 @@
             //moveAirplaneOnGround.Right();    // NotImplementedException
 
             #endregion
+            #region Shallow Copy And Deep Copy 
+
+            #region Array Of Value Type 
+
+            //int[] Arr01 = { 1, 2, 3 };
+            //int[] Arr02 = new int[3];
+
+            //Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}"); // 54267293
+            //Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}"); // 18643596
+
+            //#region Shallow Copy 
+            ////Arr02 = Arr01; // Shallow Copy 
+            ////			   // Copy Value Of Arr01 To Arr02
+            ////			   // Copy Happened In Stack
+            ////			   // [ Arr01 , Arr02 ] => Has Same Value [Address]
+            ////			   // [ Arr01 , Arr02 ] => Refer To Same Object 
+
+            ////Console.WriteLine("Shallow Copy");
+            ////Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}"); // 54267293
+            ////Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}"); // 54267293 
+            ////Console.WriteLine("After Change Any Value From Arr01");
+            ////Arr01[0] = 100;
+
+            ////Console.WriteLine($"Arr01[0] = {Arr01[0]}"); // 100
+            ////Console.WriteLine($"Arr02[0] = {Arr02[0]}"); // 100
+
+            //#endregion
+
+            //#region Deep Copy 
+
+            ////Arr02 = (int[])Arr01.Clone(); // Deep Copy 
+            ////							  // Happened In Heap
+            ////							  // Create New Object With Different and New Identity and Return It
+            ////							  // The New Object Will Have The Same Object State [Data] Of Caller "Arr01"
+
+            ////Console.WriteLine("Deep Copy");
+            ////Console.WriteLine($"HashCode Of Arr01 = {Arr01.GetHashCode()}"); // 54267293
+            ////Console.WriteLine($"HashCode Of Arr02 = {Arr02.GetHashCode()}"); // 33574638 
+            ////Console.WriteLine("After Change Any Value From Arr01");
+            ////Arr01[0] = 100;
+
+            ////Console.WriteLine($"Arr01[0] = {Arr01[0]}"); // 100
+            ////Console.WriteLine($"Arr02[0] = {Arr02[0]}"); // 1
+
+            //#endregion
+
+            #endregion
+
+            #region Array Of Reference Type 
+
+
+            #region Immutable Reference Type [String]
+            //string[] names01 = { "Omar", "Amr" };
+            //string[] names02 = new string[2]; // { null , null }
+
+            //Console.WriteLine($"Hash code Of names01 ={names01.GetHashCode()} "); // 54267293
+            //Console.WriteLine($"Hash code Of names02 ={names02.GetHashCode()} "); // 18643596
+
+            //#region Shallow Copy 
+
+            ////names02 = names01; // Shallow Copy 
+            ////				   // Copy Value Of names01 To names02 
+            ////				   // Copy Happened In Stack
+            ////				   // [ names01 , names02 ] => Has Same Value [Address]
+            ////				   // [ names01 , names02 ] => Refer To Same Object 
+
+            ////Console.WriteLine("after Shallow Copy");
+            ////Console.WriteLine($"Hash code Of names01 ={names01.GetHashCode()} "); // 54267293
+            ////Console.WriteLine($"Hash code Of names02 ={names02.GetHashCode()} "); // 54267293
+
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); //  Omar
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); //  Omar
+
+            ////names01[0] = "Salma";
+            ////Console.WriteLine("after Changing names01[0]");
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); // Salma
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); // Salma
+
+            //#endregion
+
+            //#region Deep Copy 
+            ////names02 = (string[])names01.Clone(); // Deep Copy 
+            ////									 // Happened In Heap
+            ////									 // Create New Object With Different and New Identity and Return It
+            ////									 // The New Object Will Have The Same Object State [Data] Of Caller "names01"
+            ////									 // [ names01 , names02 ] => Refer To Different Objects
+
+            ////Console.WriteLine("after Deep Copy");
+            ////Console.WriteLine($"Hash code Of names01 ={names01.GetHashCode()} "); // 54267293
+            ////Console.WriteLine($"Hash code Of names02 ={names02.GetHashCode()} "); // 33574638
+
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); //  Omar
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); //  Omar
+
+            ////names01[0] = "Salma";
+            ////Console.WriteLine("after Changing names01[0]");
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); // Salma
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); // Omar
+            //#endregion
+
+            #endregion
+
+            #region Mutable Reference Type [stringbuilder]
+
+            ////StringBuilder[] names01 = new StringBuilder[1];
+            ////names01[0] = new StringBuilder("Omar");
+
+            //StringBuilder[] names01 = [new StringBuilder("Omar")]; // Collection expressions  [ C# 12 Feature ]
+            //StringBuilder[] names02 = new StringBuilder[1];
+
+            //Console.WriteLine($"Hash code Of names01 ={names01.GetHashCode()} "); // 54267293
+            //Console.WriteLine($"Hash code Of names02 ={names02.GetHashCode()} "); // 18643596
+
+            //#region Shallow Copy 
+
+            ////names02 = names01; // Shallow Copy 
+            ////				   // Copy Value Of names01 To names02 
+            ////				   // Copy Happened In Stack
+            ////				   // [ names01 , names02 ] => Has Same Value [Address]
+            ////				   // [ names01 , names02 ] => Refer To Same Object 
+
+            ////Console.WriteLine("after Shallow Copy");
+            ////Console.WriteLine($"Hash code Of names01 ={names01.GetHashCode()} "); // 54267293
+            ////Console.WriteLine($"Hash code Of names02 ={names02.GetHashCode()} "); // 54267293
+
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); //  Omar
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); //  Omar
+
+            ////names01[0].Append(" Salma");
+            ////Console.WriteLine("after Changing names01[0]");
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); // Omar Salma
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); // Omar Salma
+
+            //#endregion
+
+            //#region Deep Copy 
+            ////names02 = (StringBuilder[])names01.Clone(); // Deep Copy 
+            ////											// Happened In Heap
+            ////											// Create New Object With Different and New Identity and Return It
+            ////											// The New Object Will Have The Same Object State [Data] Of Caller "names01"
+            ////											// [ names01 , names02 ] => Refer To Different Objects
+
+            ////Console.WriteLine("after Deep Copy");
+            ////Console.WriteLine($"Hash code Of names01 ={names01.GetHashCode()} "); // 54267293
+            ////Console.WriteLine($"Hash code Of names02 ={names02.GetHashCode()} "); // 33574638
+
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); //  Omar
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); //  Omar
+
+            ////names01[0].Append(" Ahmed");
+            ////Console.WriteLine("after Changing names01[0]");
+            ////Console.WriteLine($"Names01[0] = {names01[0]}"); // Omar Ahmed
+            ////Console.WriteLine($"Names02[0] = {names02[0]}"); // Omar Ahmed
+            //#endregion
+
+            #endregion
+
+
+            #endregion
+
+            #endregion
         }
     }
 }
