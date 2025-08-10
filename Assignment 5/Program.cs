@@ -26,6 +26,14 @@
             //    Console.WriteLine($"Authorization: {isAuthorized}");
             //}
             #endregion
+            #region Q3
+            //INotificationService emailService = new EmailNotificationService();
+            //INotificationService smsService = new SmsNotificationService();
+            //INotificationService pushService = new PushNotificationService();
+            //emailService.SendNotification("yyyy@gmail.com", "Hello");
+            //smsService.SendNotification("01234567891", "How are you");
+            //pushService.SendNotification("youssef", "You have a new message.");
+            #endregion
         }
     }
 }
