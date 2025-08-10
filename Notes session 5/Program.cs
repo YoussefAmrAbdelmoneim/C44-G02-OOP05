@@ -12,6 +12,13 @@
             //Public access modifier is the default access modifier inside interface.
             //You Can not Create an object from interface but you can create a reference from interface.
             #endregion
+            #region Shallow Copy and Deep Copy
+            //  Refer to how objects are copied, particularly when those objects contain references to other objects.
+            // For pure value types(like int, double, struct), both shallow and deep copy are the same: when you copy them, you copy their values
+            //For structs with reference type fields , you might need to manually deep copy the reference type fields, but the struct itself is still
+            //copied by value.
+            //For reference types (such as classes, arrays, and delegates) behave differently a shallow copy and a deep copy have distinct meanings
+            #endregion
 
         }
     }
